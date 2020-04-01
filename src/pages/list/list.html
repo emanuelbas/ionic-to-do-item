@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My First List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items">
+      <ion-icon name="{{item.icon}}" item-left (click)="itemTapped($event, item)"></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-right>
+        {{item.note}}
+      </div>
+      <ion-icon name="trash" item-left (click)="itemDelete(item)"></ion-icon>
+    </button>
+  </ion-list>
+
+  <button ion-item>
+    <ion-input type="text" [(ngModel)]="desc"></ion-input>
+     <ion-icon name="add" item-left (click)="itemAdd(this.desc)"></ion-icon>
+  </button>
+
+</ion-content>
+
+
